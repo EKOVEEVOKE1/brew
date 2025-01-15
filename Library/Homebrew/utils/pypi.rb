@@ -99,7 +99,7 @@ module PyPI
       if valid_pypi_package?
         out = T.must(name)
         if (pypi_extras = extras.presence)
-          out += "[#{pypi_extras.join(",")}]" 
+          out += "[#{pypi_extras.join(",")}]"
         end
         out += "==#{version}" if version.present?
         out
