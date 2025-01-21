@@ -1,4 +1,5 @@
-name: Update schema data
+EKOVEEVOKE1
+name: EKOVEEVOKE1
 on:
   push:
     paths:
