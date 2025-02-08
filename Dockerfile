@@ -90,7 +90,9 @@ RUN --mount=type=cache,target=/home/linuxbrew/.cache,uid="${USER_ID}" \
   && ln -s ../Homebrew/bin/brew .linuxbrew/bin/brew \
   && git -C .linuxbrew/Homebrew remote set-url origin https://github.com/Homebrew/brew \
   && git -C .linuxbrew/Homebrew fetch origin \
+  && git -C .linuxbrew/Homebrew gc --aggressive \
   && HOMEBREW_NO_ANALYTICS=1 HOMEBREW_NO_AUTO_UPDATE=1 brew tap --force homebrew/core \
+  && git -C .linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core gc --aggressive \
   && brew install-bundler-gems --groups=all \
   && brew cleanup \
   && { git -C .linuxbrew/Homebrew config --unset gc.auto; true; } \
